@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class StackImplementationWithLinkedList {
 
 	static class Node<T> {
@@ -47,17 +49,36 @@ class StackImplementationWithLinkedList {
 
 	public static void main(String[] args) {
 		LinkedListStack<Integer> lStack = new LinkedListStack<>();
-		lStack.push(10);
-		lStack.push(20);
-		lStack.pop();
-		lStack.pop();
-		lStack.pop();
-		lStack.pop();
-		System.out.println("Popped item is " + lStack.pop().key);
-		lStack.push(30);
-		lStack.push(40);
-		lStack.push(50);
+//		lStack.push(10);
+//		lStack.push(20);
+//		lStack.pop();
+//		lStack.pop();
+//		lStack.pop();
+//		lStack.pop();
+//		System.out.println("Poped item is " + lStack.pop().key);
+//		lStack.push(30);
+//		lStack.push(40);
+//		lStack.push(50);
 
+		Scanner in = new Scanner(System.in);
+		int queries = in.nextInt();
+		int type;
+		int data;
+		for (int query = 0; query < queries; query++) {
+			type = in.nextInt();
+			switch(type) {
+			case 1:
+				data = in.nextInt();
+				lStack.push(data);
+				break;
+			case 2:
+				System.out.println(lStack.pop().key);
+				break;
+			}
+		}
+
+		in.close();
 	}
+
 
 }

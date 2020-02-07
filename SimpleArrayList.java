@@ -103,9 +103,9 @@ class SimpleArrayList<E> {
 		checkRange(index);
 
 		E data = (E) element[index];
-		int copyLegth = listSize - index - 1;
-		if (copyLegth > 0)
-			System.arraycopy(element, index + 1, element, index, copyLegth);
+		int copyLength = listSize - index - 1;
+		if (copyLength > 0)
+			System.arraycopy(element, index + 1, element, index, copyLength);
 		
 		element[--listSize] = null;
 		return data;
@@ -165,6 +165,9 @@ class SimpleArrayList<E> {
 		}
 		if (newLength - HUGE_ARRAY_CAPACITY > 0) {
 			newLength = fetchHugeValue(initializeToCapcity);
+			if(newLength ==  listSize) {
+			    --listSize;
+			}		
 		}
 		element = Arrays.copyOf(element, newLength);
 	}

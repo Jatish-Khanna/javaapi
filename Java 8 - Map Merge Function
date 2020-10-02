@@ -1,0 +1,17 @@
+class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+        List<int[]> list = Arrays.asList(new int[][]{{1,2}, {1, 4}, {2, 1}});
+        
+        Map<Integer, String> map = new HashMap<>();
+        
+        for(int[] element : list) {
+            map.merge(element[0], element[1]+"", (old, nE) -> old + ", " + nE);
+        }
+        
+        System.out.println(list.stream().collect(Collectors.toMap(a -> a[0], b -> b[1]+"", (old, nE) -> old + ", " +nE)));
+        
+        System.out.println(map);
+     }
+}
